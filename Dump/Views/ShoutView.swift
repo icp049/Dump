@@ -16,32 +16,34 @@ struct ShoutView: View {
     
     
     var body: some View {
-        NavigationView {
-            VStack {
-                // Your view content here
-                
-                List(shouts.sorted { $0.postDate > $1.postDate }) { item in
+        ScrollView {
+            LazyVStack {
+                ForEach(shouts.sorted { $0.postDate > $1.postDate }) { item in
                     VStack(alignment: .leading) {
                         Text(item.shout)
                             .font(.headline)
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(Color.green)
+                            .cornerRadius(10)
+                        
                         Text(formatDate(item.postDate))
                             .font(.subheadline)
                             .foregroundColor(.gray)
                     }
+                    .padding(.vertical, 8)
                 }
-                .listStyle(PlainListStyle())
-                
-                List(rants.sorted { $0.postDate > $1.postDate }) { item in
-                    VStack(alignment: .leading) {
-                        Text(item.rant)
-                            .font(.headline)
-                        Text(formatDate(item.postDate))
-                            .font(.subheadline)
-                            .foregroundColor(.gray)
-                    }
-                }
-                
-                .listStyle(PlainListStyle())            }
+            }
+            .padding(.horizontal) // Add horizontal padding if needed
+        }
+
+            
+            
+            
+            
+            
+            
+            
             .navigationBarTitle("Shout")
             .toolbar{
                 
@@ -66,4 +68,4 @@ struct ShoutView: View {
         }
     }
     
-}
+
