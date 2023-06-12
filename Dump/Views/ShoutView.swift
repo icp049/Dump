@@ -9,9 +9,9 @@ struct ShoutView: View {
     
     
     init(userId: String){
-        self._items = FirestoreQuery(collectionPath:"users/\(userId)/shout")
+        self._items = FirestoreQuery(collectionPath: "users/\(userId)/shout")
     }
-
+    
     
     
     var body: some View {

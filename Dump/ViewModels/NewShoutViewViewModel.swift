@@ -40,7 +40,7 @@ class NewShoutViewViewModel: ObservableObject {
         db.collection("users")
             .document(uId)
             .collection("shout")
-            .document("newId")
+            .document(newId)
             .setData(newItem.asDictionary())
         
         

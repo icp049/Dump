@@ -17,6 +17,7 @@ struct NewShoutView: View {
                 //shout
                 TextField("What's your shout?", text: $viewModel.shout)
                     .textFieldStyle(DefaultTextFieldStyle())
+                    .autocorrectionDisabled()
                 
                 
                 RUButton(title: "Add", background: .pink)
