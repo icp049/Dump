@@ -1,8 +1,18 @@
-//
-//  NewShoutViewViewModel.swift
-//  Dump
-//
-//  Created by Ian Pedeglorio on 2023-06-08.
-//
-
 import Foundation
+
+class NewShoutViewViewModel: ObservableObject {
+    @Published var shout = ""
+    @Published var shoutDate = Date()
+    
+    
+    init() {
+        
+    }
+    
+    func save() {
+        
+    }
+    
+    
+   
+}

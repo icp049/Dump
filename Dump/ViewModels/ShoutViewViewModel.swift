@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+
+class ShoutViewViewModel: ObservableObject{
+    
+    @Published var showingNewItemView = false
+    
+    init() {}
+}

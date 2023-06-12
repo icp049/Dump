@@ -1,20 +1,41 @@
-//
-//  NewShoutView.swift
-//  Dump
-//
-//  Created by Ian Pedeglorio on 2023-06-08.
-//
-
 import SwiftUI
 
 struct NewShoutView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    @StateObject var viewModel = NewShoutViewViewModel()
+    @Binding var newItemPresented: Bool
+    
+    
+    
+    var body : some View {
+        VStack{
+            Text("New Shout")
+                .font(.system(size:32))
+                .bold()
+                .padding(.top, 100)
+            
+            Form {
+                //shout
+                TextField("What's your shout?", text: $viewModel.shout)
+                    .textFieldStyle(DefaultTextFieldStyle())
+                
+                
+                RUButton(title: "Add", background: .pink)
+                {
+                    viewModel.save()
+                    newItemPresented = false
+                }
+            }
+        }
     }
 }
 
-struct NewShoutView_Previews: PreviewProvider {
-    static var previews: some View {
-        NewShoutView()
+
+struct NewShoutView_Previews: PreviewProvider{
+    static var previews: some View{
+        NewShoutView(newItemPresented: Binding(get: {
+            return true
+        }, set: { _ in
+        }))
     }
+    
 }

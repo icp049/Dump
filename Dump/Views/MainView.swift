@@ -21,6 +21,12 @@ struct MainView: View {
                             Label("Home", systemImage: "house")
                         }
                     
+                    ScrapBookView()
+                        .tabItem{
+                            Label("ScrapBook", systemImage: "photo")
+                        }
+                    
+                    
                     ShoutView()
                         .tabItem{
                             Label("Shouts", systemImage: "house")
@@ -30,18 +36,18 @@ struct MainView: View {
                         .tabItem{
                             Label("Profile", systemImage: "person.circle")
                         }
-                    
                 }
-            } else {
+                }else {
                 LoginView()
             }
         }
         
     }
-}
-
-struct MainView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainView()
+    
+    
+    struct MainView_Previews: PreviewProvider {
+        static var previews: some View {
+            MainView()
+        }
     }
 }
