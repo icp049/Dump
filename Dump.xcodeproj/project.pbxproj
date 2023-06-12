@@ -17,6 +17,7 @@
 		A631E5362A3691820099872F /* RUButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A631E5352A3691820099872F /* RUButton.swift */; };
 		A631E5382A3697D50099872F /* UploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A631E5372A3697D50099872F /* UploadView.swift */; };
 		A631E53A2A369BDB0099872F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A631E5392A369BDB0099872F /* GoogleService-Info.plist */; };
+		A631E53C2A36F6B70099872F /* Rants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A631E53B2A36F6B70099872F /* Rants.swift */; };
 		A6E576852A319ED6008B76EE /* DumpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E576842A319ED6008B76EE /* DumpApp.swift */; };
 		A6E576872A319ED6008B76EE /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E576862A319ED6008B76EE /* MainView.swift */; };
 		A6E576892A319ED9008B76EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6E576882A319ED9008B76EE /* Assets.xcassets */; };
@@ -70,6 +71,7 @@
 		A631E5352A3691820099872F /* RUButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RUButton.swift; sourceTree = "<group>"; };
 		A631E5372A3697D50099872F /* UploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadView.swift; sourceTree = "<group>"; };
 		A631E5392A369BDB0099872F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A631E53B2A36F6B70099872F /* Rants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rants.swift; sourceTree = "<group>"; };
 		A6E576812A319ED6008B76EE /* Dump.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dump.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6E576842A319ED6008B76EE /* DumpApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DumpApp.swift; sourceTree = "<group>"; };
 		A6E576862A319ED6008B76EE /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 			children = (
 				A6E576C52A31AA5D008B76EE /* User.swift */,
 				A6E576C72A31AA77008B76EE /* Shouts.swift */,
+				A631E53B2A36F6B70099872F /* Rants.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				A6E576C22A31A9C3008B76EE /* NewShoutView.swift in Sources */,
 				A6E576D02A31AACC008B76EE /* ShoutViewViewModel.swift in Sources */,
 				A631E52C2A3284030099872F /* ProfileView.swift in Sources */,
+				A631E53C2A36F6B70099872F /* Rants.swift in Sources */,
 				A6E576C62A31AA5D008B76EE /* User.swift in Sources */,
 				A631E5362A3691820099872F /* RUButton.swift in Sources */,
 				A631E5282A327C1F0099872F /* Extensions.swift in Sources */,

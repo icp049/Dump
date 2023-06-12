@@ -17,12 +17,20 @@ struct NewShoutView: View {
                 //shout
                 TextField("What's your shout?", text: $viewModel.shout)
                     .textFieldStyle(DefaultTextFieldStyle())
+                    .frame(height: 80)
                     .autocorrectionDisabled()
                 
                 
-                RUButton(title: "Add", background: .pink)
+                
+                RUButton(title: "Post as Shout", background: .green)
                 {
-                    viewModel.save()
+                    viewModel.saveShout()
+                    newItemPresented = false
+                }
+                
+                RUButton(title: "Post as Rant", background: .red)
+                {
+                    viewModel.saveRant()
                     newItemPresented = false
                 }
             }

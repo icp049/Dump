@@ -14,3 +14,13 @@ class ShoutViewViewModel: ObservableObject{
     
     init() {}
 }
+
+
+
+func formatDate(_ timeInterval: TimeInterval) -> String {
+    let date = Date(timeIntervalSince1970: timeInterval)
+    let formatter = DateFormatter()
+    formatter.dateStyle = .medium
+    formatter.timeStyle = .short
+    return formatter.string(from: date)
+}

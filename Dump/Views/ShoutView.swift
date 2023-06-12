@@ -3,13 +3,14 @@ import FirebaseFirestoreSwift
 
 struct ShoutView: View {
     @StateObject var viewModel = ShoutViewViewModel()
-    @FirestoreQuery var items: [Shouts]
-    
+    @FirestoreQuery var shouts: [Shouts]
+    @FirestoreQuery var rants: [Rants]
     
     
     
     init(userId: String){
-        self._items = FirestoreQuery(collectionPath: "users/\(userId)/shout")
+        self._shouts = FirestoreQuery(collectionPath: "users/\(userId)/shout")
+        self._rants = FirestoreQuery(collectionPath: "users/\(userId)/rant")
     }
     
     
@@ -19,12 +20,28 @@ struct ShoutView: View {
             VStack {
                 // Your view content here
                 
-                List(items) {
-                    item in Text(item.shout)
+                List(shouts.sorted { $0.postDate > $1.postDate }) { item in
+                    VStack(alignment: .leading) {
+                        Text(item.shout)
+                            .font(.headline)
+                        Text(formatDate(item.postDate))
+                            .font(.subheadline)
+                            .foregroundColor(.gray)
+                    }
                 }
                 .listStyle(PlainListStyle())
                 
-            }
+                List(rants.sorted { $0.postDate > $1.postDate }) { item in
+                    VStack(alignment: .leading) {
+                        Text(item.rant)
+                            .font(.headline)
+                        Text(formatDate(item.postDate))
+                            .font(.subheadline)
+                            .foregroundColor(.gray)
+                    }
+                }
+                
+                .listStyle(PlainListStyle())            }
             .navigationBarTitle("Shout")
             .toolbar{
                 
