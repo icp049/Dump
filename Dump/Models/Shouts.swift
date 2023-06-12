@@ -6,3 +6,14 @@
 //
 
 import Foundation
+
+
+
+struct Shouts: Codable, Identifiable {
+    let id: String
+    let shout: String
+    let postDate: TimeInterval
+    let postTime: TimeInterval
+    
+    
+}
