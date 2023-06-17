@@ -7,6 +7,7 @@ struct Shout: Codable, Identifiable {
     let postDate: TimeInterval
     let postTime: TimeInterval
     
+    
 }
 
 struct Rant: Codable, Identifiable {
@@ -14,6 +15,7 @@ struct Rant: Codable, Identifiable {
     let rant: String
     let postDate: TimeInterval
     let postTime: TimeInterval
+   
     
 }
 
@@ -21,6 +23,7 @@ struct PostWrapper: Identifiable {
     let id: String
     let content: String
     let postDate: TimeInterval
+    let isRant: Bool
     
 }
 
@@ -31,8 +34,8 @@ struct ShoutView: View {
     @FirestoreQuery var rants: [Rants]
     
     var combinedList: [PostWrapper] {
-            let shoutPosts = shouts.map { PostWrapper(id: $0.id, content: $0.shout, postDate: $0.postDate) }
-            let rantPosts = rants.map { PostWrapper(id: $0.id, content: $0.rant, postDate: $0.postDate) }
+        let shoutPosts = shouts.map { PostWrapper(id: $0.id, content: $0.shout, postDate: $0.postDate, isRant: false) }
+        let rantPosts = rants.map { PostWrapper(id: $0.id, content: $0.rant, postDate: $0.postDate, isRant:true) }
             return (shoutPosts + rantPosts).sorted { $0.postDate > $1.postDate }
         }
    
@@ -54,7 +57,7 @@ struct ShoutView: View {
                     VStack(alignment: .leading) {
                         Text(item.content)
                             .font(.headline)
-                        
+                            .foregroundColor(item.isRant ? .red : .green)
                              
                         Text(formatDate(item.postDate))
                             .font(.subheadline)
