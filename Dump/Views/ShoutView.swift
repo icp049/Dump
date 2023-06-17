@@ -44,6 +44,8 @@ struct ShoutView: View {
     init(userId: String){
         self._shouts = FirestoreQuery(collectionPath: "users/\(userId)/shout")
         self._rants = FirestoreQuery(collectionPath: "users/\(userId)/rant")
+      
+       
     }
     
     
@@ -85,9 +87,9 @@ struct ShoutView: View {
                     
                     
                 }
-            }
                 
-            .navigationBarTitle("Shout")
+            }
+            .navigationBarTitle("\(viewModel.username)'s Shouts")
             .toolbar{
                 
                 Button{
@@ -101,6 +103,10 @@ struct ShoutView: View {
                 }
             }
         }
+        .onAppear {
+            viewModel.fetchUser()
+        }
+        
     }
     
     
