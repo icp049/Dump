@@ -53,21 +53,40 @@ struct ShoutView: View {
             VStack {
                 // Your view content here
                 
-                List(combinedList) { item in
-                    VStack(alignment: .leading) {
-                        Text(item.content)
-                            .font(.headline)
-                            .foregroundColor(item.isRant ? .red : .green)
-                             
-                        Text(formatDate(item.postDate))
-                            .font(.subheadline)
-                            .foregroundColor(.gray)
+                ScrollView {
+                    ForEach(combinedList) { item in
+                        VStack { // Changed HStack to VStack
+                            HStack {
+                                Text(item.content)
+                                    .font(.headline)
+                                Spacer()
+                            }
+                            
+                            HStack {
+                                Text(formatDate(item.postDate))
+                                    .font(.subheadline)
+                                    .foregroundColor(.gray)
+                                Spacer()
+                                
+                                if item.isRant {
+                                    Text("😡")
+                                        .font(.title)
+                                        .foregroundColor(.yellow)
+                                }
+                            }
+                        }
+                        .padding(.vertical, 30)
+                        .padding(.horizontal, 8)
+                        .background(item.isRant ? Color.red.opacity(0.2) : Color.green.opacity(0.2))
+                        .cornerRadius(8)
+                        .frame(maxWidth: .infinity)
                     }
+                    .listStyle(PlainListStyle())
+                    
+                    
                 }
-                .listStyle(PlainListStyle())
+            }
                 
-        
-                       }
             .navigationBarTitle("Shout")
             .toolbar{
                 
