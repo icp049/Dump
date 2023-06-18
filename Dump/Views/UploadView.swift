@@ -40,6 +40,8 @@ struct UploadView: View {
                     // Upload the image and caption
                     // ...
                 }
+                newItemPresented = false
+                
             }) {
                 Text("Post")
                     .foregroundColor(.white)
